@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pigeon Letter Writing Assistant</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f9f6f1; color: #333; }
+    header { text-align: center; padding: 2rem 1rem; background: #fff; }
+    header img { max-width: 120px; }
+    h1 { margin: 1rem 0 0.5rem; font-size: 2rem; }
+    p { margin: 0.5rem auto; max-width: 600px; }
+    nav { text-align: center; margin: 1rem; }
+    nav button { margin: 0 0.3rem; padding: 0.4rem 1rem; cursor: pointer; }
+    section { max-width: 800px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 10px; }
+    h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    ul { padding-left: 1.2rem; }
+    .contact-form { display: flex; flex-direction: column; max-width: 400px; margin: 1rem auto; }
+    .contact-form input { margin-bottom: 1rem; padding: 0.5rem; font-size: 1rem; }
+    .contact-form button { padding: 0.5rem; background: #333; color: white; border: none; cursor: pointer; }
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Pigeon Assistant" />
+    <h1>Pigeon Letter Writing Assistant</h1>
+    <p>AI, które zamienia maile w eleganckie, poetyckie listy z fizyczną dostawą</p>
+    <nav>
+      <button onclick="switchLang('pl')">PL</button>
+      <button onclick="switchLang('en')">EN</button>
+      <button onclick="switchLang('es')">ES</button>
+      <button onclick="switchLang('zh')">中文</button>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>Problem</h2>
+    <p>Współczesna komunikacja jest szybka, ale ulotna. Maile są bezosobowe, a wiadomości giną w skrzynkach. Brakuje emocji i trwałości.</p>
+    <h2>Rozwiązanie</h2>
+    <ul>
+      <li>Napisz maila → dowolny ton i treść</li>
+      <li>Wybierz styl → romantyczny, biznesowy, poetycki itd.</li>
+      <li>My tworzymy list → drukowany lub ręcznie pisany</li>
+      <li>Wysyłka z trackingiem → przez tematycznego kuriera</li>
+    </ul>
+  </section>
+
+  <section id="features">
+    <h2>Funkcje</h2>
+    <ul>
+      <li>AI piszące listy z perfekcyjną gramatyką i stylem</li>
+      <li>Piękna kaligrafia i papier</li>
+      <li>Tematyczna dostawa (np. kurier przebrany za ptaka)</li>
+      <li>Śledzenie przesyłki</li>
+    </ul>
+  </section>
+
+  <section id="pricing">
+    <h2>Cennik</h2>
+    <ul>
+      <li>Basic: $19 – drukowany list + standardowa dostawa</li>
+      <li>Premium: $39 – ręczna kaligrafia + pieczęć</li>
+      <li>Deluxe: $79 – pachnący list + dostawa przez kuriera w stroju ptaka</li>
+    </ul>
+    <p>5% z każdej transakcji trafia na ochronę pand 🐼</p>
+  </section>
+
+  <section id="subscribe">
+    <h2>Subskrypcje</h2>
+    <ul>
+      <li>Basic: $69/miesiąc</li>
+      <li>Premium: $79/miesiąc</li>
+      <li>Deluxe: $119/miesiąc</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Skontaktuj się z nami</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię" required />
+      <input type="email" placeholder="Email" required />
+      <button type="submit">Wyślij</button>
+    </form>
+    <p>Email: hello@pigeonletters.ai | Instagram: @PigeonAssistant</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pigeon Letter Writing Assistant – Projekt Koła Naukowego LB Club</p>
+  </footer>
+
+  <script>
+    const texts = {
+      en: {
+        about: "Modern communication is fast — but forgettable. Emails are impersonal and get lost. We bring elegance back.",
+        contact: "Contact us",
+        name: "Name",
+        email: "Email",
+        send: "Send"
+      },
+      es: {
+        about: "La comunicación moderna es rápida pero olvidable. Los correos electrónicos son impersonales. Traemos de vuelta la elegancia.",
+        contact: "Contáctanos",
+        name: "Nombre",
+        email: "Correo electrónico",
+        send: "Enviar"
+      },
+      zh: {
+        about: "现代通信快速但容易被遗忘。我们让优雅回归。",
+        contact: "联系我们",
+        name: "姓名",
+        email: "电子邮件",
+        send: "发送"
+      }
+    };
+    function switchLang(lang) {
+      if (lang === 'pl') location.reload();
+      document.getElementById('about').querySelector('p').innerText = texts[lang].about;
+      document.getElementById('contact').querySelector('h2').innerText = texts[lang].contact;
+      const inputs = document.querySelectorAll('.contact-form input');
+      inputs[0].placeholder = texts[lang].name;
+      inputs[1].placeholder = texts[lang].email;
+      document.querySelector('.contact-form button').innerText = texts[lang].send;
+    }
+  </script>
+</body>
+</html>
